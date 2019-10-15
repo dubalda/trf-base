@@ -33,7 +33,10 @@ FROM oraclelinux:7-slim
 ADD oracle-instantclient*.rpm* /tmp/
 ADD jdk-8u211-linux-x64.rpm* /tmp/
 
-RUN  cat jdk-8u211-linux-x64.rpm.parta* > jdk-8u211-linux-x64.rpm && \
+RUN  pwd && \
+     whoami && \
+     ls -lh && \
+     cat jdk-8u211-linux-x64.rpm.parta* > jdk-8u211-linux-x64.rpm && \
      rm jdk-8u211-linux-x64.rpm.parta* && \
      cat oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm.parta* > oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm && \
      rm oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm.parta* && \
