@@ -35,11 +35,11 @@ ADD jdk-8u211-linux-x64.rpm* /tmp/
 
 RUN  pwd && \
      whoami && \
-     ls -lh && \
-     cat jdk-8u211-linux-x64.rpm.parta* > jdk-8u211-linux-x64.rpm && \
-     rm jdk-8u211-linux-x64.rpm.parta* && \
-     cat oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm.parta* > oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm && \
-     rm oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm.parta* && \
+     ls -lh /tmp/ && \
+     cat /tmp/jdk-8u211-linux-x64.rpm.parta* > /tmp/jdk-8u211-linux-x64.rpm && \
+     rm /tmp/jdk-8u211-linux-x64.rpm.parta* && \
+     cat /tmp/oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm.parta* > /tmp/oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm && \
+     rm /tmp/oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm.parta* && \
      ls -lh && \
      yum -y install /tmp/oracle-instantclient*.rpm && \
      rm -rf /var/cache/yum && \
