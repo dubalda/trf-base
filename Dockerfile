@@ -45,16 +45,14 @@ RUN  pwd && \
      rm -rf /var/cache/yum && \
      rm -f /tmp/oracle-instantclient*.rpm && \
      echo /usr/lib/oracle/12.2/client64/lib > /etc/ld.so.conf.d/oracle-instantclient12.2.conf && \
-     ldconfig
-
-RUN  yum -y install /tmp/jdk-8u211-linux-x64.rpm && \
+     ldconfig && \
+     yum -y install /tmp/jdk-8u211-linux-x64.rpm && \
      rm -rf /var/cache/yum && \
-     rm -f /tmp/jdk-8u211-linux-x64.rpm
-
-RUN  yum -y install mc curl vi nginx gettext cifs-utils && \
-     rm -rf /var/cache/yum
-
-RUN sed -i 's/usr\/share\/nginx\/html/; autoindex on/' /etc/nginx/nginx.conf
+     rm -f /tmp/jdk-8u211-linux-x64.rpm && \
+     yum -y install mc curl vi nginx gettext cifs-utils mailx && \
+     rm -rf /var/cache/yum && \
+     sed -i 's/usr\/share\/nginx\/html/VTBTARIFF; autoindex on/' /etc/nginx/nginx.conf && \
+     mkdir /VTBTARIFF
 
 ENV PATH=$PATH:/usr/lib/oracle/12.2/client64/bin
 
