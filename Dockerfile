@@ -49,11 +49,22 @@ RUN  pwd && \
      yum -y install /tmp/jdk-8u211-linux-x64.rpm && \
      rm -rf /var/cache/yum && \
      rm -f /tmp/jdk-8u211-linux-x64.rpm && \
+     echo  $'\n\
+[nginx]\n\
+name=nginx repo\n\
+baseurl=http://nginx.org/packages/rhel/7/\$basearch/\n\
+gpgcheck=0\n\
+enabled=1\n'\
+     > /etc/yum.repos.d/nginx.repo && \
+     cat /etc/yum.repos.d/nginx.repo && \
      yum -y install mc curl vi nginx gettext cifs-utils mailx && \
      rm -rf /var/cache/yum && \
+     ls /etc/ && \
+     ls /etc/nginx/ && \
      sed -i 's/usr\/share\/nginx\/html/VTBTARIFF; autoindex on/' /etc/nginx/nginx.conf && \
      mkdir /VTBTARIFF
 
 ENV PATH=$PATH:/usr/lib/oracle/12.2/client64/bin
 
 CMD ["nginx", "-g", "daemon off;"]
+
