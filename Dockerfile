@@ -61,7 +61,8 @@ enabled=1\n'\
      rm -rf /var/cache/yum && \
      ls /etc/ && \
      ls /etc/nginx/ && \
-     sed -i 's/usr\/share\/nginx\/html/VTBTARIFF; autoindex on/' /etc/nginx/nginx.conf && \
+     sed -i 's/usr\/share\/nginx\/html/VTBTARIFF; autoindex on/' /etc/nginx/conf.d/default.conf && \
+     cat /etc/nginx/conf.d/default.conf && \
      mkdir /VTBTARIFF
 
 ENV PATH=$PATH:/usr/lib/oracle/12.2/client64/bin
