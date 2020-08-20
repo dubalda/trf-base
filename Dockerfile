@@ -28,7 +28,9 @@
 #      $ docker build -t oracle/instantclient:12.2.0.1 .
 #
 #
-FROM oraclelinux:7-slim
+FROM oraclelinux:7.8
+
+ENV TZ=Europe/Moscow
 
 ADD oracle-instantclient*.rpm* /tmp/
 ADD jdk-8u211-linux-x64.rpm* /tmp/
